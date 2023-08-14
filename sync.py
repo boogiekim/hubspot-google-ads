@@ -225,10 +225,10 @@ def add_users_to_customer_match_user_list(
 def build_offline_user_data_job_operations(client):
     # Adds the raw records to a raw input list.
     raw_records = []
-    api_url = "https://api.hubapi.com/contacts/v1/lists/30/contacts/all?property=firstname&property=lastname&property=email&property=phone"
-
+    api_url = str(os.environ["api_url"])
+    
     headers = {
-        'Authorization': 'Bearer pat-na1-111e57ab-b515-4a74-9c35-d7a64c10aa0e'
+        'Authorization': str(os.environ["auth"])
     }
 
     response = requests.get(api_url, headers=headers)
